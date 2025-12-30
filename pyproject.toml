@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "endstone-catsign"
+version = "0.0.2"
+description = "Endstone首款签到"
+
+[project.entry-points."endstone"]
+catsign = "endstone_catsign:CatSign"
