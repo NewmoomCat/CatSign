@@ -1,4 +1,4 @@
-## CatSign Plugin
+### CatSign Plugin
 
 签到插件, 可自定义
 
