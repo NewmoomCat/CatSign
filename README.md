@@ -12,6 +12,7 @@
 }
 ```
 ### 本插件分为两个版本
-### JsonMoney >>> 
-### UMoney >>>
+[JsonMoney](https://github.com/NewmoomCat/CatSign/releases/download/neo1/endstone_catsign_json-0.1.1-py2.py3-none-any.whl)
+[UMoney](https://github.com/NewmoomCat/CatSign/releases/download/neo1/endstone_catsign_um-0.1.1-py2.py3-none-any.whl)
+
 ### 请根据你服务器所使用的经济系统选择
