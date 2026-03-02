@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "endstone-catsign-um"
-version = "0.1.1"
+version = "0.1.2"
 description = "Endstone首款签到-UM版"
 
 [project.entry-points."endstone"]

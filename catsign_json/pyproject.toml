@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "endstone-catsign-json"
-version = "0.1.1"
-description = "Endstone首款签到-UM版"
+version = "0.1.2"
+description = "Endstone首款签到-JsonMoney版"
 
 [project.entry-points."endstone"]
 catsign-json = "endstone_catsign_json:CatSign"

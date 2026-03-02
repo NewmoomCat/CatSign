@@ -7,7 +7,7 @@ from endstone import ColorFormat, Player
 
 class CatSign(Plugin):
     api_version = "0.10"
-    authors = "XinYueNeko"
+    authors = ["XinYueNeko"]
 
     def __init__(self)->None:
         super().__init__()

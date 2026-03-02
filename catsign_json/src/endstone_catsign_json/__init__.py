@@ -7,9 +7,9 @@ from endstone import ColorFormat, Player
 
 class CatSign(Plugin):
     api_version = "0.10"
-    authors = "XinYueNeko"
+    authors = ["XinYueNeko"]
 
-    def __init__(self)->None:
+    def __init__(self):
         super().__init__()
         """ Money """
         data_dir = os.path.join(os.getcwd(), "plugins", "CatSign")
@@ -62,7 +62,7 @@ class CatSign(Plugin):
 
     def on_command(self, sender: CommandSender, cmd: Command, args: list[str])->bool:
         """ JsonMoney """
-        self.umoney = self.server.plugin_manager.get_plugin("ye111566_jsonmoney")
+        jsonmoney = self.server.plugin_manager.get_plugin("ye111566_jsonmoney")
         """ Y-M-D """
         mstr = self.cf_data.get("money") #获取str : money
         qz = self.cf_data.get("title") #获取插件前缀
@@ -80,12 +80,12 @@ class CatSign(Plugin):
                         os.makedirs(tm_data)
                         with open(os.path.join(tm_data, tm_data_json), "w", encoding='utf-8') as f:
                             f.write("Time")
-                        self.umoney.change(u, mi)
+                        jsonmoney.change(u, mi)
                         sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
                     elif not os.path.exists(tm_data_json):
                         with open(tm_data_json, "w", encoding='utf-8') as f:
                             f.write("{\"Time\":\"\"}")
-                        self.umoney.change(u, mi)
+                        jsonmoney.change(u, mi)
                         sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
                     elif os.path.exists(os.path.join(tm_data, tm_data_json)):
                         sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}你今天已经签到过了哟~")
