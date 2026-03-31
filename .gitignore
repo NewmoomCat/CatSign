@@ -1,0 +1,11 @@
+## Endstone 服务器测试
+bedrock_server/*
+venv/*
+
+## 构建输出
+dist/*
+*/dist/*
+
+## IDE/编辑器配置
+.idea/*
+.vscode/*
