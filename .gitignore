@@ -9,3 +9,7 @@ dist/*
 ## IDE/编辑器配置
 .idea/*
 .vscode/*
+
+## Mac OS X or 11
+.DS_Store
+/nbproject/private/

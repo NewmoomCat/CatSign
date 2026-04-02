@@ -86,40 +86,30 @@ class CatSign(Plugin):
         if isinstance(sender, Player):
             match cmd.name:
                 case 'sign':
-                    if umoney:
-                        if not os.path.exists(tm_data):
-                            os.makedirs(tm_data)
-                            with open(os.path.join(tm_data, tm_data_json), "w", encoding='utf-8') as f:
-                                f.write("Time")
+                    if not os.path.exists(tm_data):
+                        os.makedirs(tm_data)
+                        with open(os.path.join(tm_data, tm_data_json), "w", encoding='utf-8') as f:
+                            f.write("{\"Time\":\"\"}")
+                        if umoney:
                             umoney.api_change_player_money(u, mi)
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
-                        elif not os.path.exists(tm_data_json):
-                            with open(tm_data_json, "w", encoding='utf-8') as f:
-                                f.write("{\"Time\":\"\"}")
+                        elif jsonmoney:
+                            jsonmoney.change(u, mi)
+                        sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
+                    elif not os.path.exists(tm_data_json):
+                        with open(tm_data_json, "w", encoding='utf-8') as f:
+                            f.write("{\"Time\":\"\"}")
+                        if umoney:
                             umoney.api_change_player_money(u, mi)
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
-                        elif os.path.exists(os.path.join(tm_data, tm_data_json)):
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}你今天已经签到过了哟~")
-                    elif jsonmoney:
-                        if not os.path.exists(tm_data):
-                            os.makedirs(tm_data)
-                            with open(os.path.join(tm_data, tm_data_json), "w", encoding='utf-8') as f:
-                                f.write("Time")
+                        elif jsonmoney:
                             jsonmoney.change(u, mi)
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
-                        elif not os.path.exists(tm_data_json):
-                            with open(tm_data_json, "w", encoding='utf-8') as f:
-                                f.write("{\"Time\":\"\"}")
-                            jsonmoney.change(u, mi)
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
-                        elif os.path.exists(os.path.join(tm_data, tm_data_json)):
-                            sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}你今天已经签到过了哟~")
-                    return True
+                        sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}签到成功, 获得{mi}块钱!")
+                    elif os.path.exists(os.path.join(tm_data, tm_data_json)):
+                        sender.send_message(f"{ColorFormat.AQUA}[{qz}]{ColorFormat.WHITE}你今天已经签到过了哟~")
         else:
             sender.send_message(f"{ColorFormat.RED}此命令仅玩家可执行!")
             return True
 
-    @event_handler()
+    @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         auto_sign = self.cf_data.get("auto-sign")
         player: Player = event.player
