@@ -6,7 +6,7 @@ from endstone.event import event_handler, PlayerJoinEvent
 from endstone.plugin import Plugin
 from endstone import ColorFormat, Player
 
-class CatSign(Plugin):
+class NekoQD(Plugin):
     api_version = "0.6"
     authors = ["XinYueNeko"]
 
@@ -46,21 +46,21 @@ class CatSign(Plugin):
     }
 
     def on_load(self):
-        self.logger.info(f"{ColorFormat.AQUA}CatSign loading...")
+        self.logger.info(f"{ColorFormat.AQUA}NekoQD loading...")
 
     def on_enable(self):
         if self.server.plugin_manager.get_plugin("umoney"):
-            self.logger.info(f"{ColorFormat.AQUA}CatSign is Enabled!{ColorFormat.RESET}")
+            self.logger.info(f"{ColorFormat.AQUA}NekoQD is Enabled!{ColorFormat.RESET}")
             self.logger.info(f"{ColorFormat.AQUA}Author: {ColorFormat.RESET}XinYueNeko")
             self.register_events(self)
         elif self.server.plugin_manager.get_plugin("ye111566_jsonmoney"):
-            self.logger.info(f"{ColorFormat.AQUA}CatSign is Enabled!{ColorFormat.RESET}")
+            self.logger.info(f"{ColorFormat.AQUA}NekoQD is Enabled!{ColorFormat.RESET}")
             self.logger.info(f"{ColorFormat.AQUA}Author: {ColorFormat.RESET}XinYueNeko")
             self.register_events(self)
         else:
             self.logger.info(f"{ColorFormat.RED}没有经济插件,")
             self.logger.info(f"{ColorFormat.RED}请安装JsonMoney或UMoney经济插件")
-            self.logger.info(f"{ColorFormat.RED}CatSign Disabling...")
+            self.logger.info(f"{ColorFormat.RED}NekoQD Disabling...")
             self.server.plugin_manager.disable_plugin(self)
 
     def on_disable(self):

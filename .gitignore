@@ -1,6 +1,7 @@
 ## Endstone 服务器测试
 bedrock_server/*
 venv/*
+.venv/*
 
 ## 构建输出
 dist/*
